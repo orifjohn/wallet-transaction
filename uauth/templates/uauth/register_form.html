@@ -1,0 +1,26 @@
+{% extends 'uauth/base_uauth.html' %}
+
+{% block title %}
+    {{ block.super }} | REGISTER PAGE
+{% endblock %}
+
+{% block content %}
+    <form method="post" action="{% url 'register_url' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+            <input name="phone_number" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Telefon raqamingizni kiriting</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input name="password1" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Retry Password</label>
+            <input name="password2" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
